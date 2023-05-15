@@ -18,5 +18,7 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background: rgb(128,34,195);
+    background: linear-gradient(40deg, rgba(128,34,195,1) 0%, rgba(47,122,255,1) 100%);
 }

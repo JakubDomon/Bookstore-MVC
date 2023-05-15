@@ -1,7 +1,30 @@
-﻿
+﻿@model IEnumerable<Book>
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
 
+<div class="w-100 d-flex justify-content-center align-content-center">
+    <table class="table table-striped table-bordered w-75">
+        <thead>
+            <tr>
+                <th>Book name</th>
+                <th>Book desc</th>
+                <th>Book author</th>
+                <th>Book add date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model)
+            {
+                <tr>
+                    <td width="20%">@obj.Title</td>
+                    <td width="40%">@obj.Description</td>
+                    <td width="20%">@obj.Author</td>
+                    <td width="20%">@obj.CreatedAt</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
