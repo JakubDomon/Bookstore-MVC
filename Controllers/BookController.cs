@@ -30,9 +30,16 @@ namespace Bookstore_MVC.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Book book)
         {
-            _db.Books.Add(book);
-            _db.SaveChanges();
-            return View();
+            if (ModelState.IsValid)
+            {
+                // Assign creation date to book obj
+                book.CreatedAt = DateTime.Now;
+                // Save book to database
+                _db.Books.Add(book);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(book);
         }
     }
 }
